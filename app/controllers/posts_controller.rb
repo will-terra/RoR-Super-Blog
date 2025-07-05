@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-before_action :set_post, only: [:edit, :update]
+  before_action :set_post, only: %i[edit update destroy]
+
   def index
     @posts = Post.all
   end
@@ -14,25 +15,34 @@ before_action :set_post, only: [:edit, :update]
 
   def create
     @post = current_user.posts.build(post_params)
-    
+
     if @post.save
       redirect_to my_posts_path, notice: 'Post criado com sucesso!'
     else
-      redirect_to new_post_path, notice: "Erro ao criar Post!"
+      render :new, alert: 'Erro ao criar Post!'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
       redirect_to my_posts_path, notice: 'Post atualizado com sucesso!'
     else
-      redirect_to edit_post, notice: "Erro ao atualizar Post!"
+      render :edit, alert: 'Erro ao atualizar Post!'
     end
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to my_posts_path, notice: 'Post deletado com sucesso!'
+    else
+      redirect_to my_posts_path, alert: 'Erro ao deletar Post!'
     end
+  end
+
   private
+
   def post_params
     params.require(:post).permit(:title, :description)
   end
