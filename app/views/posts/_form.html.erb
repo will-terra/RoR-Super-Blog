@@ -1,0 +1,5 @@
+<%= form_with model: post do |form| %>
+  <%= form.text_field :title, placeholder:"Escreva seu título" %>
+  <%= form.text_field :description, placeholder:"Escreva o post"%>
+  <%= form.submit "Enviar"%>
+<%end%>
