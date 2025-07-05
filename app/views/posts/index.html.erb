@@ -1,0 +1,11 @@
+  <%= link_to "Meus Posts", my_posts_path%>
+<hr/>
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2><%= post.title %></h2>
+    <p><%= post.description %></p>
+    <p><%= link_to 'Read More', post_path(post) %></p>
+    <small>Posted by <%= post.user.email %> on <%= post.created_at.strftime("%B %d, %Y") %></small>
+  </div>
+  <hr/>
+<% end %>
