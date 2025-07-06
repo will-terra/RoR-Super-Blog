@@ -50,12 +50,11 @@ begin
   require_relative '../config/environment'
   puts "  ✅ Rails loaded successfully"
   
-  puts "\n🔍 ACTIVERECORD CONNECTION CONFIG:"
-  config = ActiveRecord::Base.connection_config
-  config.each do |key, value|
-    display_value = key.to_s.downcase.include?('password') ? '[MASKED]' : value
-    puts "  #{key}: #{display_value}"
-  end
+  # config = ActiveRecord::Base.connection_config
+  # config.each do |key, value|
+  #   display_value = key.to_s.downcase.include?('password') ? '[MASKED]' : value
+  #   puts "  #{key}: #{display_value}"
+  # }
   
   puts "\n🔍 TESTING DATABASE CONNECTION:"
   result = ActiveRecord::Base.connection.execute("SELECT version()")

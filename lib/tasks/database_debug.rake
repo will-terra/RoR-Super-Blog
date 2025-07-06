@@ -15,7 +15,7 @@ namespace :db do
       
       # Try to get more info about the connection
       begin
-        config = ActiveRecord::Base.connection_config
+        # config = ActiveRecord::Base.connection_config
         puts "🔍 Connection config: #{config.inspect}"
       rescue => config_error
         puts "❌ Could not get connection config: #{config_error.message}"

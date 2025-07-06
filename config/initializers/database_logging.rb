@@ -8,12 +8,12 @@ Rails.application.configure do
       Rails.logger.info "  ROR_SUPER_BLOG_DATABASE_PASSWORD present: #{ENV['ROR_SUPER_BLOG_DATABASE_PASSWORD'].present?}"
       
       begin
-        config = ActiveRecord::Base.connection_config
-        Rails.logger.info "  ActiveRecord config adapter: #{config[:adapter]}"
-        Rails.logger.info "  ActiveRecord config database: #{config[:database]}"
-        Rails.logger.info "  ActiveRecord config host: #{config[:host]}"
-        Rails.logger.info "  ActiveRecord config port: #{config[:port]}"
-        Rails.logger.info "  ActiveRecord config username: #{config[:username]}"
+        # config = ActiveRecord::Base.connection_config
+        Rails.logger.info "  ActiveRecord config adapter: #{ActiveRecord::Base.connection_config[:adapter]}"
+        Rails.logger.info "  ActiveRecord config database: #{ActiveRecord::Base.connection_config[:database]}"
+        Rails.logger.info "  ActiveRecord config host: #{ActiveRecord::Base.connection_config[:host]}"
+        Rails.logger.info "  ActiveRecord config port: #{ActiveRecord::Base.connection_config[:port]}"
+        Rails.logger.info "  ActiveRecord config username: #{ActiveRecord::Base.connection_config[:username]}"
       rescue => e
         Rails.logger.error "❌ Error getting database config: #{e.message}"
       end
