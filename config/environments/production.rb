@@ -39,6 +39,13 @@ Rails.application.configure do
 
   # Change to "debug" to log everything (including potentially personally-identifiable information!)
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+  
+  # Database debugging for deployment issues
+  puts "🔍 Production environment loading..."
+  puts "🔍 DATABASE_URL present: #{ENV['DATABASE_URL'].present?}"
+  puts "🔍 DATABASE_URL (first 50 chars): #{ENV['DATABASE_URL']&.first(50)}..."
+  puts "🔍 ROR_SUPER_BLOG_DATABASE_PASSWORD present: #{ENV['ROR_SUPER_BLOG_DATABASE_PASSWORD'].present?}"
+  puts "🔍 RAILS_ENV: #{ENV['RAILS_ENV']}"
 
   # Prevent health checks from clogging up the logs.
   config.silence_healthcheck_path = "/up"
