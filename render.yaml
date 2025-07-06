@@ -5,7 +5,7 @@ services:
     plan: free
     buildCommand: './bin/render-build.sh'
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
-    startCommand: 'bundle exec rails db:migrate && ./bin/rails server'
+    startCommand: 'bundle exec rails db:migrate && bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RAILS_ENV:-production}'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
