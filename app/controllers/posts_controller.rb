@@ -17,9 +17,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to my_posts_path, notice: 'Post criado com sucesso!'
+      redirect_to my_posts_path, notice: "Post criado com sucesso!"
     else
-      render :new, alert: 'Erro ao criar Post!'
+      render :new, alert: "Erro ao criar Post!"
     end
   end
 
@@ -27,17 +27,17 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to my_posts_path, notice: 'Post atualizado com sucesso!'
+      redirect_to my_posts_path, notice: "Post atualizado com sucesso!"
     else
-      render :edit, alert: 'Erro ao atualizar Post!'
+      render :edit, alert: "Erro ao atualizar Post!"
     end
   end
 
   def destroy
     if @post.destroy
-      redirect_to my_posts_path, notice: 'Post deletado com sucesso!'
+      redirect_to my_posts_path, notice: "Post deletado com sucesso!"
     else
-      redirect_to my_posts_path, alert: 'Erro ao deletar Post!'
+      redirect_to my_posts_path, alert: "Erro ao deletar Post!"
     end
   end
 

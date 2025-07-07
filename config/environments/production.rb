@@ -38,8 +38,8 @@ Rails.application.configure do
   config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT)
 
   # Change to "debug" to log everything (including potentially personally-identifiable information!)
-  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
-  
+  config.log_level = :info
+
   # Database debugging for deployment issues
   puts "🔍 Production environment loading..."
   puts "🔍 DATABASE_URL present: #{ENV['DATABASE_URL'].present?}"
